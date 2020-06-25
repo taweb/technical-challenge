@@ -1,0 +1,37 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="part1.css" rel="stylesheet">
+  </head>
+  <body id="body">
+    <h1 id="title">LG Frontend, Part 1</h1>
+    <div class="task">
+      <h2>Task 1</h2>
+      <p id="sentence">This sentence should be red.</p>
+      <button class="toggle" type="button">Toggle</button>
+    </div>
+    <form class="task" name="calculator">
+      <h2>Task 2</h2>
+      <p>Add the required code to make this calculator work.</p>
+      <div class="spacer">
+        <input id="firstNum" type="number"> 
+        <input id="secondNum" type="number">
+        <p id="answer" class="invisible">= </p>
+        <p class="error invisible"></p>
+      </div>
+      <div class="spacer">
+        <input type="radio" id="add" value="add" name="calculator" checked>
+        <label for="add">Add</label>
+        <input type="radio" id="subtract" value="subtract" name="calculator">
+        <label for="subtract">Subtract</label>
+        <input type="radio" id="multiply" value="multiply" name="calculator">
+        <label for="multiply">Multiply</label>
+        <input type="radio" id="divide" value="multiply" name="calculator">
+        <label for="divide">Divide</label>
+      </div>
+      <button type="submit">Calculate</button>
+    </form>
+    
+    
+    <script type="text/javascript" src="part1.js"></script>
+</body></html>

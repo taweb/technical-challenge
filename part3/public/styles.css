@@ -1,0 +1,44 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --blue-dark: #2f364f;
+    --blue-medium: #495c9a;
+    --blue-light: #bbc7f0;
+    --white: #fff;
+    --red: #d74848;
+    --black: #444;
+}
+
+body {
+    background-color: var(--blue-dark);
+    font-family: 'Quicksand', sans-serif;
+}
+
+input,
+button {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    padding: 5px;
+    border: 2px solid white;
+    background: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:focus {
+    outline-color: white;
+    outline-width: 1px;
+}

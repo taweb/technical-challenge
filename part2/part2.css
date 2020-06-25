@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --black: #2e2f30;
+  --white: #e9f0ea;
+  --green: #8bc492;
+  --green-dark: #2c6132;
+  --red: #bd1919;
+  --orange: #ba5700;
+}
+
+body {
+  padding: 2rem 0;
+  color: var(--black);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.1rem;
+  background-color: var(--green);
+}
+
+.todo {
+  margin: 0 auto;
+  max-width: 960px;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.task-form {
+  padding-bottom: 30px;
+}
+
+.new-task-buttons {
+  padding-top: 10px;
+}
+
+.add-task {
+  margin-bottom: 10px;
+}
+
+.tasks-none,
+.tasks-completed {
+  font-size: 1.5rem;
+}
+
+.task-list {
+  margin-bottom: 20px;
+}
+
+.new-task-error {
+  display: none;
+  color: var(--red);
+}
+
+.form-errors .new-task-error {
+  display: block;
+}
+
+input, button {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.3rem;
+}
+
+.task-edit {
+  margin: 0 auto;
+  background-color: var(--green);
+  width: 100%;
+}
+
+button {
+  padding: 0.3rem;
+  border: 2px solid var(--black);
+  text-align: center;
+  transition: background-color .2s;
+  position: relative;
+}
+
+button:hover {
+  color: var(--white);
+  box-shadow: 0 8px 6px -6px var(--black);
+}
+
+button:focus {
+  outline: 1px solid var(--black);
+}
+
+button:active {
+  transform: translateY(2px);
+}
+
+.remove-button {
+  margin-top: 10px; 
+}
+
+input {
+  padding: 0.3rem;
+  background-color: var(--white);
+  border: 2px solid var(--black);
+  color: var(--black);
+}
+
+input:focus {
+  outline: 3px solid var(--black);
+  box-shadow: 0 8px 6px -6px var(--black);
+}
+
+#new-task {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  line-height: 1.7rem;
+}
+
+.form-errors #new-task {
+  border: 2px solid var(--red);
+}
+.form-errors #new-task:focus {
+  outline: 3px solid var(--red);
+}
+
+.add-task,
+.all-completed {
+  color: var(--green-dark);
+}
+.add-task:hover,
+.all-completed:hover {
+  background-color: var(--green-dark);
+}
+
+.edit-button {
+  color: var(--orange);
+}
+.edit-button:hover {
+  background-color: var(--orange);
+}
+
+.remove-button {
+  color: var(--red);
+  margin-bottom: 10px;  
+}
+.remove-button:hover {
+  background-color: var(--red);
+}
+
+.task-item {
+  list-style: none;
+  padding: 0.5rem 0;
+}
+
+.task-text {
+  font-size: 1.5rem;
+}
+
+.task-edit {
+  display: none;
+}
+
+.task-item.task-editing .task-edit {
+  display: block;
+}
+
+.task-item.task-editing label {
+  display: none;
+}
+
+.task-item input[type="checkbox"] {
+  display: none;
+}
+
+.task-list .task-item input[type="checkbox"]:checked+label .task-text {
+  text-decoration: line-through;
+}
+
+@media(min-width: 600px) {
+  #new-task,
+  .task-edit {
+    max-width: 400px;
+  }
+}
