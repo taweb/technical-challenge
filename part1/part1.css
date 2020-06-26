@@ -1,20 +1,41 @@
 body {
   margin: 0 auto;
   max-width: 50rem;
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: 'Cairo', sans-serif;
   line-height: 1.5;
   padding: 4rem 1rem;
-  color: #444;
-  background-color: #eee;
+  color: #11564b;
+  background-color: #abccc6;
 }
+
+input, button {
+  font-family: 'Cairo', sans-serif;
+  border: 1px solid #11564b;
+  border-radius: 3px;
+}
+
+.task-two .number-input:not(:last-of-type) {
+  margin-bottom: 10px;
+}
+
+.spacer {
+  margin-bottom: 20px;
+}
+
+#answer {
+  font-size: 2rem;
+  margin: 0 0 20px;
+}
+
 h2 {
   margin-top: 1rem;
   padding-top: 1rem;
-  color: #333;
 }
-.colored {
-  color: red;
+
+.colored, .error {
+  color: #921919;
 }
+
 .invisible {
  display: none;
 }

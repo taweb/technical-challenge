@@ -131,6 +131,7 @@ input:focus {
 .all-completed {
   color: var(--green-dark);
 }
+
 .add-task:hover,
 .all-completed:hover {
   background-color: var(--green-dark);
@@ -147,6 +148,7 @@ input:focus {
   color: var(--red);
   margin-bottom: 10px;  
 }
+
 .remove-button:hover {
   background-color: var(--red);
 }

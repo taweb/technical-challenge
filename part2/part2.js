@@ -9,13 +9,13 @@ let allDone = false;
 const addTask = function (a) {
   a.preventDefault();
   if (newTask.value.trim().length > 0) {
-    taskForm.classList.remove('form-errors')
+    taskForm.classList.remove('form-errors');
     items.push({
       task: newTask.value,
       done: false
     }),
     saveList(),
-    taskForm.reset()
+    taskForm.reset();
   } else {
     taskForm.classList.add('form-errors');
   }
@@ -77,7 +77,7 @@ const editItem = function (indexToEdit, input) {
         ...item, 
         editing: !item.editing,
         task: input.value.trim().length > 0 ? input.value : item.task
-      }
+      };
     }
     return item;
   })
@@ -92,25 +92,25 @@ const completeAll = function () {
 }
 
 const removeItem = function (indexToRemove) {
-  items = items.filter((item, index) => index !== indexToRemove)
+  items = items.filter((item, index) => index !== indexToRemove);
 }
 
 const saveList = function () {
-  createList(items, taskContent)
+  createList(items, taskContent);
 };
 
 taskContent.addEventListener('click', updateList);
 taskForm.addEventListener('submit', addTask);
 allCompleted.addEventListener('click', completeAll);
 taskContent.addEventListener('keyup', e => {
-  e.preventDefault()
+  e.preventDefault();
   if (e.keyCode === 13) {
     const indexToEdit = +e.target.parentNode.dataset.index;
     const input = [...e.target.parentNode.childNodes].find(el => el.name === "todo");    
-    editItem(indexToEdit, input)
+    editItem(indexToEdit, input);
     saveList();
   }
-})
+});
 
 createList(items, taskContent);
 

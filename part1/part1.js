@@ -20,8 +20,6 @@ function getResult(first, second, operation) {
     return Math.round(result*100)/100;
 }
 
-let lastError = false;
-
 //Calculates simple maths
 function calc(e) {
     e.preventDefault();
@@ -32,13 +30,13 @@ function calc(e) {
 
     if (!firstNum.value || !secondNum.value) {
         calcError.classList.remove('invisible');
-        calcError.innerText = "Please enter both numbers above to get this calculator started!"
+        calcError.innerText = "Please enter both numbers above to calculate!";
         return;
     }
 
     const operation = radios.find(radio => radio.checked).id;
     answer.classList.remove('invisible');
-    answer.innerText = `= ${getResult(+firstNum.value, +secondNum.value, operation)}`
+    answer.innerText = `= ${getResult(+firstNum.value, +secondNum.value, operation)}`;
 }
 
 const toggleButton = document.querySelector('.toggle');
@@ -50,7 +48,5 @@ const secondNum = document.getElementById('secondNum');
 const radios = [...document.querySelectorAll('[name="calculator"]')]
 const calcError = document.querySelector('.error');
 
-
 toggleButton.addEventListener('click', colorToggle);
-
 document.calculator.addEventListener('submit', calc);
