@@ -39,7 +39,7 @@
                     "status": this.checked
                 }).catch(() => {
                     // api call not successful, revert to previous state
-                    this.checked = !this.checked
+                    this.checked = !this.checked;
                 })
             },
             ...mapActions(['checkTask', 'deleteTask'])
@@ -71,6 +71,7 @@
 
     label {
         flex-grow: 1;
+        cursor: pointer;
     }
 
     .task-additional {
@@ -84,7 +85,7 @@
         color: var(--white);
         border-radius: 5px;
         padding: 2px 5px;
-        box-shadow: 0 10px 6px -10px black;
+        box-shadow: 0 10px 6px -10px var(--black);
     }
 
     .task-delete {
@@ -103,6 +104,7 @@
 
     input[type="checkbox"]:checked + label .task-text {
         text-decoration: line-through;
+        opacity: 0.5;
     }
 
 </style>

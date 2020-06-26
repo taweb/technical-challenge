@@ -8,7 +8,7 @@
 
 #app {
   padding: 2rem 0;
-  max-width: 75rem;
+  max-width: 60rem;
   margin: 0 auto;
   color: var(--blue-dark);
   font-family: 'Quicksand', sans-serif;

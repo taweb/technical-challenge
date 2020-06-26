@@ -5,28 +5,44 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    tasks: []
+    tasks: [],
+    fields: [
+      {
+        type: 'description',
+        label: 'Task Name'
+      },
+      {
+        type: 'category',
+        label: 'Category'
+      },
+      {
+        type: 'user',
+        label: 'User'
+      },
+      {
+        type: 'due_date',
+        label: 'Due Date'
+      }
+    ]
   },
   mutations: {
     SET_TASKS(state, payload) {
-      state.tasks = payload
+      state.tasks = payload;
     },
     SET_TASK(state, payload) {
       state.tasks.push(payload);
     },
     PUT_TASK(state, payload) {
       state.tasks = state.tasks.map(task => {
-        return task.task_uuid === payload.task_uuid ? payload : task
-      })
+        return task.task_uuid === payload.task_uuid ? payload : task;
+      });
     },
-    DELETE_TASK(state, id, response) {
-      console.log(response);
-      
-      state.tasks = state.tasks.filter(task => task.task_uuid !== id)
+    DELETE_TASK(state, id) {
+      state.tasks = state.tasks.filter(task => task.task_uuid !== id);
     }
   },
   actions: {
-    async fetchTasks({ commit }){
+    async fetchTasks({ commit }) {
       try {
         const result = await fetch('http://localhost:8080/DelightedDingo/api/tasks/')
         const data = await result.json();
@@ -35,50 +51,50 @@ export default new Vuex.Store({
         console.log(err);
       }
     },
-    async addTask( { commit }, payload ){
+    async addTask({ commit }, payload) {
       try {
-        const result = await fetch('http://localhost:8080/DelightedDingo/api/tasks/', 
-          { 
+        const result = await fetch('http://localhost:8080/DelightedDingo/api/tasks/',
+          {
             method: 'POST',
             headers: {
-              'Content-type': 'application/json' 
+              'Content-type': 'application/json'
             },
             body: JSON.stringify(payload)
           }
-        )
-        const data = await result.json()
-        commit('SET_TASK', data)
+        );
+        const data = await result.json();
+        commit('SET_TASK', data);
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     },
-    async checkTask( { commit }, payload ){
+    async checkTask({ commit }, payload) {
       try {
-        const result = await fetch('http://localhost:8080/DelightedDingo/api/tasks/', 
-          { 
+        const result = await fetch('http://localhost:8080/DelightedDingo/api/tasks/',
+          {
             method: 'PUT',
             headers: {
-              'Content-type': 'application/json' 
+              'Content-type': 'application/json'
             },
             body: JSON.stringify(payload)
           }
-        )
-        const data = await result.json()
-        commit('PUT_TASK', data)
+        );
+        const data = await result.json();
+        commit('PUT_TASK', data);
       } catch (err) {
         throw new err;
       }
     },
-    async deleteTask( { commit }, id){      
+    async deleteTask({ commit }, id) {
       const payload = {
         task_uuid: id
-      }
+      };
       try {
-        const result = await fetch('http://localhost:8080/DelightedDingo/api/tasks/', 
-          { 
+        const result = await fetch('http://localhost:8080/DelightedDingo/api/tasks/',
+          {
             method: 'DELETE',
             headers: {
-              'Content-type': 'application/json' 
+              'Content-type': 'application/json'
             },
             body: JSON.stringify(payload)
           }
@@ -86,7 +102,7 @@ export default new Vuex.Store({
         if (result.status === 200) {
           commit('DELETE_TASK', id);
         } else {
-          throw "Error deleting task"
+          throw "Error deleting task";
         }
       } catch (err) {
         console.log(err);
@@ -95,10 +111,3 @@ export default new Vuex.Store({
   },
   modules: {}
 });
-
-// {
-//   method: 'GET',
-//   headers: {
-//     'Content-type': 'application/json'
-//   }
-// },
